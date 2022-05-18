@@ -162,10 +162,6 @@
             }
         }
 
-        private void Dashboard_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            
-        }
         private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (Program.Shuttingdown)
@@ -173,7 +169,7 @@
                 DialogResult result = MessageBox.Show(this, "Do you want to Exit?", "Message Box", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    Application.Exit();
+                    Application.ExitThread(); 
                 }
                 else
                 {
@@ -640,7 +636,6 @@
             this.Text = "Laxco Retail Software";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Dashboard_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dashboard_FormClosed);
             this.Load += new System.EventHandler(this.Dashboard_Load);
             this.Shown += new System.EventHandler(this.Dashboard_Shown);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Dashboard_KeyDown);
@@ -704,12 +699,12 @@
                 {
                     Program.Lastuser = "";
                     Program.Shuttingdown = false;
-                    base.Close();
+                    this.Close();
                 }
                 else
                 {
                     login.Show();
-                    base.Hide();
+                    this.Hide();
                 }
             }
             catch (Exception exception1)
