@@ -23,7 +23,7 @@
         //private const int WM_LBUTTONDOWN = 0x201;
         private readonly DatabaseConfiguration Db = new DatabaseConfiguration();
         public readonly Login L;
-        bool Shuttingdown = true;
+       
         private IContainer components = null;
         public NotifyIcon NotifyIcon1;
         private ToolTip toolTip1;
@@ -168,7 +168,7 @@
         }
         private void Dashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (Shuttingdown)
+            if (Program.Shuttingdown)
             {
                 DialogResult result = MessageBox.Show(this, "Do you want to Exit?", "Message Box", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
@@ -225,7 +225,7 @@
 
         private void Dashboard_Shown(object sender, EventArgs e)
         {
-            this.Shuttingdown = true;
+            Program.Shuttingdown = true;
             this.LoadAutocompleteProducts();
         }
 
@@ -703,7 +703,7 @@
                 if (CloseDashboard)
                 {
                     Program.Lastuser = "";
-                    Shuttingdown = false;
+                    Program.Shuttingdown = false;
                     base.Close();
                 }
                 else

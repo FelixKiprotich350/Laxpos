@@ -11,6 +11,7 @@
 
     internal static class Program
     {
+        public static bool Shuttingdown = true;
         public static CompanyDetails Company_Details = new CompanyDetails();
         public static LaxposReportingDataset Report_Dataset = new LaxposReportingDataset();
         public static DataSet CustomerCart = new DataSet();
