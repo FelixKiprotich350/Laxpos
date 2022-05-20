@@ -203,6 +203,9 @@
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Dashboard.Designer.cs">
+      <DependentUpon>Dashboard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Expenses\NewExpense.cs">
       <SubType>Form</SubType>
     </Compile>
