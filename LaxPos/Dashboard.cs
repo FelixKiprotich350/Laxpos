@@ -70,7 +70,7 @@
             this.GenerateMenu();
         }
 
-        private void ActionOccured()
+        private void UpdateLastTask()
         {
             Program.LastActionTime = DateTime.Now;
         }
@@ -80,7 +80,7 @@
             this.CheckLoginStatus();
         }
 
-        public bool Backup()
+        public bool BackupDB()
         {
             bool flag;
             try
@@ -169,6 +169,7 @@
                 DialogResult result = MessageBox.Show(this, "Do you want to Exit?", "Message Box", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
+                    BackupDB();
                     Application.ExitThread(); 
                 }
                 else
@@ -183,7 +184,7 @@
         }
         private void Dashboard_KeyDown(object sender, KeyEventArgs e)
         {
-            this.ActionOccured();
+            this.UpdateLastTask();
         }
 
         private void Dashboard_Load(object sender, EventArgs e)
