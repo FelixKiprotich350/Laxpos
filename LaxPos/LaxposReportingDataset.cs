@@ -256,13 +256,15 @@
             set => 
                 this._schemaSerializationMode = value;
         }
-
+#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
         [DebuggerNonUserCode, GeneratedCode("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public DataTableCollection Tables =>
             base.Tables;
 
         [DebuggerNonUserCode, GeneratedCode("System.Data.Design.TypedDataSetGenerator", "16.0.0.0"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+
         public DataRelationCollection Relations =>
+
             base.Relations;
 
         [Serializable, XmlSchemaProvider("GetTypedTableSchema")]
@@ -351,7 +353,7 @@
             [DebuggerNonUserCode, GeneratedCode("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override Type GetRowType() => 
                 typeof(LaxposReportingDataset.DataTable1Row);
-
+#pragma warning restore CS0108 // Member hides inherited member; missing new keyword
             [DebuggerNonUserCode, GeneratedCode("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public static XmlSchemaComplexType GetTypedTableSchema(XmlSchemaSet xs)
             {

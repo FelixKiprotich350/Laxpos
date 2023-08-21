@@ -1,12 +1,11 @@
 ﻿namespace LaxPos.Customers
-{
-    using Bunifu.Framework.UI;
+{ 
     using System;
     using System.ComponentModel;
     using System.Drawing;
     using System.Windows.Forms;
 
-    public class ManageLoyalty : BunifuForm
+    public class ManageLoyalty : Form
     {
         private IContainer components = null;
 

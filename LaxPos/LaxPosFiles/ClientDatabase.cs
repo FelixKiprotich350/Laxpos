@@ -14,7 +14,8 @@
         public static ClientDatabase Default =>
             defaultInstance;
 
-        [UserScopedSetting, DebuggerNonUserCode, DefaultSettingValue("localhost")]
+       // [UserScopedSetting, DebuggerNonUserCode, DefaultSettingValue("192.168.48.124")]
+        [UserScopedSetting, DebuggerNonUserCode, DefaultSettingValue("127.0.0.1")]
         public string Server
         {
             get => 

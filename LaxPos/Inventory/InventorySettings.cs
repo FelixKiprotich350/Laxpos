@@ -1,12 +1,11 @@
 ﻿namespace LaxPos.Inventory
 {
-    using Bunifu.Framework.UI;
     using System;
     using System.ComponentModel;
     using System.Drawing;
     using System.Windows.Forms;
 
-    public class InventorySettings : BunifuForm
+    public class InventorySettings : Form
     {
         private IContainer components = null;
 

@@ -19,6 +19,7 @@
     [Serializable, DesignerCategory("code"), ToolboxItem(true), XmlSchemaProvider("GetTypedDataSetSchema"), XmlRoot("ReceiptData"), HelpKeyword("vs.data.DataSet")]
     public class ReceiptData : DataSet
     {
+#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
         private DataTable1DataTable tableDataTable1;
         private System.Data.SchemaSerializationMode _schemaSerializationMode;
 
@@ -691,6 +692,7 @@
 
         [GeneratedCode("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void DataTable1RowChangeEventHandler(object sender, ReceiptData.DataTable1RowChangeEvent e);
+#pragma warning restore CS0108 // Member hides inherited member; missing new keyword
     }
 }
 

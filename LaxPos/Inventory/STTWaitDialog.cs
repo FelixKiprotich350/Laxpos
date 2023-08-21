@@ -1,12 +1,11 @@
 ﻿namespace LaxPos.Inventory
 {
-    using Bunifu.Framework.UI;
     using System;
     using System.ComponentModel;
     using System.Drawing;
     using System.Windows.Forms;
 
-    public class STTWaitDialog : BunifuForm
+    public class STTWaitDialog : Form
     {
         private IContainer components = null;
         private FlowLayoutPanel flowLayoutPanel1;

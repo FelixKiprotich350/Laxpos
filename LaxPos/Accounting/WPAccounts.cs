@@ -8,7 +8,7 @@
     using System.Drawing;
     using System.Windows.Forms;
 
-    public class WPAccounts : Form
+    public class WPAccounts : LaxcoForm
     {
         private readonly DatabaseConfiguration Db = new DatabaseConfiguration();
         private IContainer components = null;

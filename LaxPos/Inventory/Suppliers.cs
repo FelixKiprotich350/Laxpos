@@ -1,6 +1,5 @@
 ﻿namespace LaxPos.Inventory
 {
-    using Bunifu.Framework.UI;
     using LaxPos;
     using LaxPos.LaxPosFiles;
     using MySql.Data.MySqlClient;
@@ -10,7 +9,7 @@
     using System.Drawing;
     using System.Windows.Forms;
 
-    public class Suppliers : BunifuForm
+    public class Suppliers : LaxcoForm
     {
         private readonly DatabaseConfiguration Db = new DatabaseConfiguration();
         private IContainer components = null;

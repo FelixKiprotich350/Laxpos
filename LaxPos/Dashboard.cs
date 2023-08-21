@@ -22,6 +22,7 @@ namespace LaxPos
         //private const int WM_LBUTTONDOWN = 0x201;
         private readonly DatabaseConfiguration Db = new DatabaseConfiguration();
         public readonly Login L;
+        private Form lastopenform=null;
        
         //private IContainer components = null;
      
@@ -414,7 +415,11 @@ namespace LaxPos
                                 else if (str2 == "CustomerSupport_Container")
                                 {
                                     string str13 = name;
-                                    rform = (str13 == "F100") ? ((Form)new ManageCustomers()) : ((str13 == "F101") ? ((Form)new ManageLoyalty()) : ((str13 == "F102") ? ((Form)new SalesRecords()) : null));
+                                    rform = (str13 == "F100") ? ((Form)new ManageCustomers()) :
+                                        ((str13 == "F101") ? ((Form)new ManageLoyalty()) : 
+                                        ((str13 == "F102") ? ((Form)new SalesRecords()) :
+                                        ((str13 == "F103") ? ((Form)new SalesRecords()) :
+                                        null)));
                                 }
                             }
                             else
@@ -440,7 +445,7 @@ namespace LaxPos
                         {
                             string str4 = name;
                             rform = (str4 == "C100") ? ((Form)new MasterEntries()) : ((str4 == "C101") ? ((Form)new StockIn()) : ((str4 == "C102") ? ((Form)new Products()) : ((str4 == "C103") ? ((Form)new Lpo()) : ((str4 == "C104") ? ((Form)new StockManagement()) : 
-                                ((str4 == "C106") ? ((Form)new Suppliers()) : ((str4 == "C107") ? ((Form)new InventoryReports()): ((str4 == "C108") ? ((Form)new InventorySettings()) : null)))))));
+                                ((str4 == "C106") ? ((Form)new Suppliers()) : ((str4 == "C107") ? ((Form)new InventoryReports()): ((str4 == "C108") ? ((Form)new PriceTags()) : null)))))));
                         }
                         
                     }
@@ -457,8 +462,9 @@ namespace LaxPos
                 }
          //   TR_0004:
                 if (rform != null)
-                {
+                { 
                     this.ShowRightForm(rform);
+                    lastopenform = rform;
                 }
                 else
                 {
@@ -485,16 +491,14 @@ namespace LaxPos
         {
             try
             {
-                if ((from n in base.MdiChildren
-                    where n.GetType() == Rform.GetType()
-                    select n).Count<Form>() > 0)
+                if ((from n in base.MdiChildren where n.GetType() == Rform.GetType() select n).Count<Form>() > 0)
                 {
                     (from n in base.MdiChildren
                         where n.GetType() == Rform.GetType()
                         select n).First<Form>().Activate();
                 }
                 else
-                {
+                { 
                     Rform.FormBorderStyle = FormBorderStyle.None;
                     Rform.MdiParent = this;
                     Rform.Dock = DockStyle.Fill;

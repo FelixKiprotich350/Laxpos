@@ -189,7 +189,7 @@
                     MySqlDataReader reader = command.ExecuteReader();
                     if (!reader.HasRows)
                     {
-                        MessageBox.Show("No Records Have Been Found !!", "Accounting Results", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show(str+"No Records Have Been Found !!", "Accounting Results", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.textBox3.Text = "0.00";
                         this.textBox4.Text = "0.00";
                         this.textBox5.Text = "0.00";

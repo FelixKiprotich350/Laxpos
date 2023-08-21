@@ -1,6 +1,5 @@
 ﻿namespace LaxPos.Customers
-{
-    using Bunifu.Framework.UI;
+{ 
     using LaxPos;
     using LaxPos.LaxPosFiles;
     using MySql.Data.MySqlClient;
@@ -9,7 +8,7 @@
     using System.Drawing;
     using System.Windows.Forms;
 
-    public class InvoicedCustomers : BunifuForm
+    public class InvoicedCustomers : Form
     {
         private readonly DatabaseConfiguration Db = new DatabaseConfiguration();
         private IContainer components = null;

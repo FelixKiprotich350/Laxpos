@@ -1,12 +1,11 @@
 ﻿namespace LaxPos.Inventory
-{
-    using Bunifu.Framework.UI;
+{ 
     using System;
     using System.ComponentModel;
     using System.Drawing;
     using System.Windows.Forms;
 
-    public class TaxPrices : BunifuForm
+    public class TaxPrices : Form
     {
         private IContainer components = null;
         private TabControl tabControl1;

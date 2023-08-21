@@ -61,21 +61,21 @@ namespace LaxExpanderPanel.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Icon mytesticon {
+        internal static System.Drawing.Bitmap collapse {
             get {
-                object obj = ResourceManager.GetObject("mytesticon", resourceCulture);
-                return ((System.Drawing.Icon)(obj));
+                object obj = ResourceManager.GetObject("collapse", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap testimage {
+        internal static System.Drawing.Bitmap expand {
             get {
-                object obj = ResourceManager.GetObject("testimage", resourceCulture);
+                object obj = ResourceManager.GetObject("expand", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

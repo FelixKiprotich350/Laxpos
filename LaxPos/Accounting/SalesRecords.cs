@@ -132,8 +132,7 @@
                     mpesa = double.Parse(this.Transactionwise_textBox_Mpesa.Text);
                     cash = double.Parse(this.Transactionwise_textBox_Cash.Text);
                 }
-                MessageBox.Show("Generating Report...Please Wait!", "Message Box", MessageBoxButtons.OK);
-                new ReportingForm(set, this.Report_Title, total, cash, cards, mpesa).ShowDialog(this);
+                MessageBox.Show("Generating Report...Please Wait!", "Message Box", MessageBoxButtons.OK); 
             }
             catch (Exception exception1)
             {

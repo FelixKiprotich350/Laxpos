@@ -38,8 +38,34 @@
         public static int AutologoutTime_seconds = 600;
         public static string Lastuser = "";
 
-        public static DateTime CurrentDateTime() => 
-            DateTime.Now;
+        public static DateTime CurrentDateTime() => DateTime.Now;
+
+      [STAThread]
+        private static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            string thisprocessname = Process.GetCurrentProcess().ProcessName;
+            if (Process.GetProcesses().Count<Process>(p => (p.ProcessName == thisprocessname)) > 1)
+            {
+                MessageBox.Show("STOP!.Application is already running!!", "MESSAGE BOX", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                Application.Exit();
+            }
+            else
+            {
+                Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
+                Application.ThreadException += new ThreadExceptionEventHandler(Program.Form1_UIThreadException);
+                AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(Program.CurrentDomain_UnhandledException);
+                CurrLoginForm = null;
+                CurrDashboardForm = null;
+                CurrLoggedInUser = null;
+                Dbconnstring = DbConn.DBConnecString();
+                Company_Details.GetCompanyDetails();
+                PopulateRights();
+               
+                Application.Run(new Login());
+            }
+        }
 
         private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
         {
@@ -72,31 +98,7 @@
             }
         }
 
-        [STAThread]
-        private static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            string thisprocessname = Process.GetCurrentProcess().ProcessName;
-            if (Process.GetProcesses().Count<Process>(p => (p.ProcessName == thisprocessname)) > 1)
-            {
-                MessageBox.Show("STOP!.Application is already running!!", "MESSAGE BOX", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                Application.Exit();
-            }
-            else
-            {
-                Application.SetUnhandledExceptionMode(UnhandledExceptionMode.CatchException);
-                Application.ThreadException += new ThreadExceptionEventHandler(Program.Form1_UIThreadException);
-                AppDomain.CurrentDomain.UnhandledException += new UnhandledExceptionEventHandler(Program.CurrentDomain_UnhandledException);
-                CurrLoginForm = null;
-                CurrDashboardForm = null;
-                CurrLoggedInUser = null;
-                Dbconnstring = DbConn.DBConnecString();
-                Company_Details.GetCompanyDetails();
-                PopulateRights();
-                Application.Run(new Login());
-            }
-        }
+      
 
         private static void PopulateRights()
         {
@@ -202,7 +204,7 @@
             FunctionalityRight right16 = new FunctionalityRight();
             right16.RightID = "C108";
             right16.RightLevel = 1;
-            right16.RightShortName = "Inventory Settings";
+            right16.RightShortName = "Price Tags";
             right16.Department = UserRolesCategories.Inventory;
             Fun_Rights.Add(right16);
             FunctionalityRight right17 = new FunctionalityRight();

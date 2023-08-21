@@ -1,6 +1,5 @@
 ﻿namespace LaxPos.Accounting
-{
-    using Bunifu.Framework.UI;
+{ 
     using LaxPos;
     using LaxPos.LaxPosFiles;
     using MySql.Data.MySqlClient;
@@ -13,7 +12,7 @@
     using System.Runtime.CompilerServices;
     using System.Windows.Forms;
 
-    public class Receivables : BunifuForm
+    public class Receivables : Form
     {
         private readonly DatabaseConfiguration Db = new DatabaseConfiguration();
         public string Report_Title = "";
@@ -99,8 +98,7 @@
                     mpesa = double.Parse(this.textBox2.Text);
                     cash = double.Parse(this.textBox1.Text);
                 }
-                MessageBox.Show("Generating Report...Please Wait!", "Message Box", MessageBoxButtons.OK);
-                new ReportingForm(set, this.Report_Title, total, cash, cards, mpesa).ShowDialog(this);
+                MessageBox.Show("Generating Report...Please Wait!", "Message Box", MessageBoxButtons.OK); 
             }
             catch (Exception exception1)
             {

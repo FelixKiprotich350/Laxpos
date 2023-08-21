@@ -37,13 +37,13 @@
         {
             if (this.ContentPanel.Visible)
             {
-               this.ExpIcon.Image = Resources.testimage;
+               this.ExpIcon.Image = Resources.expand;
                 base.Height = this.ExpanderDefaultHeight;
                 this.ContentPanel.Visible = false;
             }
             else
             {
-                this.ExpIcon.Image = Resources.testimage;
+                this.ExpIcon.Image = Resources.collapse;
                 int height = this.HeaderPanel.Height;
                 this.ContentPanel.Visible = true;
                 foreach (Control control in this.ContentPanel.Controls)
@@ -98,7 +98,7 @@
             // 
             this.ExpIcon.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.ExpIcon.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ExpIcon.Image = global::LaxExpanderPanel.Properties.Resources.testimage;
+            this.ExpIcon.Image = global::LaxExpanderPanel.Properties.Resources.expand;
             this.ExpIcon.Location = new System.Drawing.Point(0, 0);
             this.ExpIcon.Name = "ExpIcon";
             this.ExpIcon.Size = new System.Drawing.Size(32, 30);
